@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agéntica — Tu negocio, funcionando a otro nivel. Con 8 agentes IA que no descansan.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #0B1E3D;
+  --navy-mid:  #152B52;
+  --blue:      #2463EB;
+  --blue-soft: #EAF1FF;
+  --accent:    #F5A623;
+  --green:     #10B981;
+  --white:     #FFFFFF;
+  --off:       #F7F8FA;
+  --gray-100:  #F0F2F7;
+  --gray-200:  #E2E6EF;
+  --gray-400:  #9AA5B8;
+  --gray-600:  #5A6478;
+  --gray-800:  #2D3748;
+  --text:      #111827;
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;font-size:16px;line-height:1.6;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 64px;background:rgba(11,30,61,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07);transition:padding .3s;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#fff;letter-spacing:-.02em;text-decoration:none;}
+.logo em{font-style:normal;color:var(--accent);}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-size:14px;font-weight:400;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-btn{background:var(--accent);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:13px;padding:10px 22px;border-radius:50px;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.nav-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,166,35,.4);}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:140px 64px 100px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(36,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(36,99,235,.06) 1px,transparent 1px);background-size:64px 64px;}
+.hero-glow{position:absolute;top:-15%;right:-5%;width:680px;height:680px;background:radial-gradient(circle,rgba(36,99,235,.2) 0%,transparent 65%);pointer-events:none;}
+.hero-glow2{position:absolute;bottom:-10%;left:0;width:420px;height:420px;background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:800px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.25);color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:50px;margin-bottom:28px;animation:up .6s ease both;}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.5);}}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(40px,6vw,72px);line-height:1.06;letter-spacing:-.03em;color:#fff;animation:up .7s .08s ease both;}
+.hero h1 span{color:var(--accent);}
+.hero-sub{margin-top:22px;font-size:18px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.55);max-width:580px;animation:up .7s .16s ease both;}
+.hero-actions{display:flex;align-items:center;gap:16px;margin-top:38px;animation:up .7s .24s ease both;}
+.btn-main{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:14px 28px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(245,166,35,.3);transition:transform .2s,box-shadow .2s;}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(245,166,35,.45);}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;transition:color .2s;}
+.btn-ghost:hover{color:#fff;}
+.hero-numbers{display:flex;gap:52px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,.07);animation:up .7s .32s ease both;}
+.hnum-val{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:var(--accent);line-height:1;}
+.hnum-lbl{font-size:12px;color:rgba(255,255,255,.38);margin-top:4px;line-height:1.4;}
+@keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* SECTIONS */
+.sec{padding:96px 64px;}
+.sec-tag{display:block;font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.sec-tag.light{color:var(--accent);}
+.sec-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.1;letter-spacing:-.02em;color:var(--navy);}
+.sec-title.white{color:#fff;}
+.sec-sub{margin-top:14px;font-size:17px;font-weight:300;color:var(--gray-400);line-height:1.65;max-width:560px;}
+.sec-sub.white{color:rgba(255,255,255,.48);}
+
+/* SECTOR */
+.problema-sec{background:var(--off);}
+.problema-intro{max-width:720px;margin-bottom:48px;}
+.problema-intro p{margin-top:16px;font-size:17px;font-weight:300;line-height:1.75;color:var(--gray-600);}
+.problema-intro p strong{color:var(--navy);font-weight:500;}
+.sector-tabs{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap;}
+.stab{padding:10px 22px;border-radius:50px;font-family:'Syne',sans-serif;font-size:13px;font-weight:600;border:1.5px solid var(--gray-200);background:var(--white);color:var(--gray-600);cursor:pointer;transition:all .18s;}
+.stab:hover{border-color:var(--blue);color:var(--blue);}
+.stab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+.sector-body{display:none;}
+.sector-body.on{display:block;}
+.sector-lede{background:var(--navy);border-radius:var(--r-lg);padding:36px 40px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.sector-lede h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px;}
+.sector-lede h3 em{font-style:normal;color:var(--accent);}
+.sector-lede p{font-size:15px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.65;}
+.sector-lede-stat{text-align:center;flex-shrink:0;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.25);border-radius:var(--r-md);padding:20px 28px;}
+.sector-lede-stat .big{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:var(--accent);line-height:1;}
+.sector-lede-stat .lbl{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;line-height:1.3;max-width:80px;}
+.pains-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.pain{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:28px;border-left:3px solid var(--blue);transition:transform .18s,box-shadow .18s;}
+.pain:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(36,99,235,.08);}
+.pain.grn{border-left-color:var(--green);}
+.pain.acc{border-left-color:var(--accent);}
+.pain.pur{border-left-color:#7C3AED;}
+.pain-lbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:8px;}
+.pain h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.25;}
+.pain p{font-size:14px;font-weight:300;color:var(--gray-600);line-height:1.65;}
+
+/* FUNNEL */
+.funnel-sec{background:var(--white);}
+.funnel-intro{max-width:640px;margin-bottom:56px;}
+.funnel-intro p{margin-top:16px;font-size:17px;font-weight:300;color:var(--gray-600);line-height:1.75;}
+.funnel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.funnel-grid::before{content:'';position:absolute;top:36px;left:calc(12.5%);right:calc(12.5%);height:2px;background:linear-gradient(90deg,var(--gray-200) 0%,var(--blue) 50%,var(--gray-200) 100%);z-index:0;}
+.fstep{text-align:center;padding:0 16px;position:relative;z-index:1;}
+.fstep-num{width:72px;height:72px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Syne',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:3px solid var(--gray-200);transition:border-color .2s,transform .2s;}
+.fstep:hover .fstep-num{border-color:var(--blue);transform:scale(1.06);}
+.fstep-label{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.fstep-issue{display:inline-block;background:#FEF2F2;color:#B91C1C;font-size:11px;font-weight:600;padding:3px 10px;border-radius:50px;margin-bottom:10px;}
+.fstep p{font-size:13px;font-weight:300;color:var(--gray-600);line-height:1.6;}
+
+/* SOLUCIONES */
+.soluciones-sec{background:var(--off);}
+.sol-intro{max-width:640px;margin-bottom:48px;}
+.sol-intro p{margin-top:16px;font-size:17px;font-weight:300;color:var(--gray-600);line-height:1.75;}
+.sol-sector{display:none;}
+.sol-sector.on{display:block;}
+.sol-grid{display:flex;flex-direction:column;gap:24px;}
+.sol-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-lg);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;}
+.sol-before{padding:36px;border-right:1px solid var(--gray-200);}
+.sol-after{padding:36px;background:var(--navy);}
+.sol-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;}
+.sol-before .sol-section-label{color:var(--gray-400);}
+.sol-after .sol-section-label{color:var(--accent);}
+.sol-before h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.25;}
+.sol-after h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.25;}
+.sol-before p{font-size:14px;font-weight:300;color:var(--gray-600);line-height:1.65;}
+.sol-after p{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.65;}
+.sol-dato{margin-top:16px;padding:14px 18px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:var(--r-sm);}
+.sol-dato strong{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--accent);}
+.sol-dato span{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);}
+
+/* DIFERENCIACIÓN */
+.dif-sec{background:var(--navy);padding:96px 64px;}
+.dif-intro{max-width:720px;margin-bottom:56px;}
+.dif-intro p{margin-top:16px;font-size:17px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;}
+.dif-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;}
+.dif-quote{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);padding:28px;border-top:3px solid var(--accent);}
+.dif-quote p{font-size:15px;font-style:italic;font-weight:300;color:rgba(255,255,255,.7);line-height:1.65;}
+.dif-table{width:100%;border-collapse:collapse;}
+.dif-table th{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:14px 20px;text-align:left;}
+.dif-table th:first-child{background:rgba(255,255,255,.05);color:var(--gray-400);border-radius:var(--r-sm) 0 0 0;}
+.dif-table th:last-child{background:rgba(245,166,35,.1);color:var(--accent);border-radius:0 var(--r-sm) 0 0;}
+.dif-table td{padding:14px 20px;font-size:14px;font-weight:300;border-bottom:1px solid rgba(255,255,255,.05);}
+.dif-table tr:last-child td{border-bottom:none;}
+.dif-table td:first-child{color:rgba(255,255,255,.4);background:rgba(255,255,255,.02);}
+.dif-table td:last-child{color:rgba(255,255,255,.85);background:rgba(245,166,35,.04);}
+.dif-table td:last-child strong{color:var(--accent);font-weight:600;}
+
+/* AGENTES */
+.agentes-sec{background:var(--white);}
+.agentes-intro{max-width:640px;margin-bottom:56px;}
+.agentes-intro p{margin-top:16px;font-size:17px;font-weight:300;color:var(--gray-600);line-height:1.75;}
+.agentes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.ag{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:24px;border-top:3px solid var(--blue);transition:transform .18s,box-shadow .18s,border-top-color .18s;}
+.ag:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(36,99,235,.1);border-top-color:var(--accent);}
+.ag-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.08em;margin-bottom:5px;}
+.ag-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.2;}
+.ag-pain{font-size:12px;font-style:italic;font-weight:300;color:var(--gray-400);margin-bottom:14px;line-height:1.5;}
+.ag-list{list-style:none;margin-bottom:14px;}
+.ag-list li{font-size:12px;font-weight:300;color:var(--gray-600);padding:2px 0 2px 13px;position:relative;line-height:1.4;}
+.ag-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:10px;top:4px;}
+.ag-tag{display:inline-block;background:var(--blue-soft);color:#1A3A6B;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;padding:4px 10px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;}
+
+/* CASOS */
+.caso-sec{background:var(--off);}
+.caso-intro{max-width:640px;margin-bottom:48px;}
+.caso-intro p{margin-top:16px;font-size:17px;font-weight:300;color:var(--gray-600);line-height:1.75;}
+.caso-tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;}
+.ctab{padding:9px 20px;border-radius:50px;font-family:'Syne',sans-serif;font-size:13px;font-weight:600;border:1.5px solid var(--gray-200);background:var(--white);color:var(--gray-600);cursor:pointer;transition:all .18s;}
+.ctab:hover{border-color:var(--blue);color:var(--blue);}
+.ctab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+.caso-body{display:none;}
+.caso-body.on{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;}
+.caso-left{padding:48px;}
+.caso-sector-pill{display:inline-block;background:var(--accent);color:var(--navy);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;}
+.caso-left h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:16px;}
+.caso-challenge-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:8px;}
+.caso-challenge-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.caso-left p{font-size:14px;font-weight:300;color:var(--gray-600);line-height:1.65;margin-bottom:14px;}
+.caso-sol-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;margin-top:18px;}
+.caso-right{background:var(--navy);padding:48px;display:flex;flex-direction:column;justify-content:space-between;}
+.caso-metrics{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;}
+.cmet-val{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:var(--accent);line-height:1;}
+.cmet-lbl{font-size:12px;font-weight:300;color:rgba(255,255,255,.45);margin-top:5px;line-height:1.4;}
+.caso-quote{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-md);padding:22px;}
+.caso-quote p{font-size:14px;font-style:italic;font-weight:300;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:12px;}
+.caso-quote-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff;}
+.caso-quote-role{font-size:12px;color:rgba(255,255,255,.35);margin-top:2px;}
+.caso-source{font-size:11px;color:rgba(255,255,255,.2);font-style:italic;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);}
+
+/* CTA */
+.cta-sec{background:var(--navy);padding:120px 64px;text-align:center;position:relative;overflow:hidden;}
+.cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(36,99,235,.15) 0%,transparent 60%);}
+.cta-sec::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(36,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(36,99,235,.04) 1px,transparent 1px);background-size:64px 64px;}
+.cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto;}
+.cta-eyebrow{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+.cta-sec h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,5vw,52px);line-height:1.07;letter-spacing:-.03em;color:#fff;margin-bottom:18px;}
+.cta-sec h2 em{font-style:normal;color:var(--accent);}
+.cta-sec>.cta-inner>p{font-size:17px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:40px;}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--navy);font-family:'Syne',sans-serif;font-weight:700;font-size:16px;padding:16px 36px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(245,166,35,.35);transition:transform .2s,box-shadow .2s;}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(245,166,35,.5);}
+.cta-options{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:40px;}
+.cta-opt{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:16px 22px;text-decoration:none;transition:background .2s,border-color .2s;}
+.cta-opt:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);}
+.cta-opt-icon{width:34px;height:34px;border-radius:var(--r-sm);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.cta-opt-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.7);}
+.cta-opt-sub{font-size:11px;color:rgba(255,255,255,.32);margin-top:2px;}
+
+/* FOOTER */
+footer{background:#060E1E;padding:36px 64px;display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:#fff;text-decoration:none;}
+.footer-logo em{font-style:normal;color:var(--accent);}
+.footer-note{font-size:12px;color:rgba(255,255,255,.2);}
+.footer-link{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}
+.footer-link:hover{color:#fff;}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav,.hero,.sec,.dif-sec,.cta-sec,footer{padding-left:32px;padding-right:32px;}
+  .agentes-grid{grid-template-columns:repeat(2,1fr);}
+  .funnel-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
+  .funnel-grid::before{display:none;}
+  .dif-quotes{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hero-numbers{flex-wrap:wrap;gap:28px;}
+  .pains-grid{grid-template-columns:1fr;}
+  .sector-lede{grid-template-columns:1fr;}
+  .sector-lede-stat{display:none;}
+  .sol-card{grid-template-columns:1fr;}
+  .sol-before{border-right:none;border-bottom:1px solid var(--gray-200);}
+  .agentes-grid{grid-template-columns:1fr;}
+  .caso-body.on{grid-template-columns:1fr;}
+  .caso-metrics{grid-template-columns:repeat(2,1fr);}
+  .cta-options{flex-direction:column;align-items:center;}
+  footer{flex-direction:column;gap:10px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">ag<em>én</em>tica</a>
+  <div class="nav-links">
+    <a href="#problema">El problema</a>
+    <a href="#soluciones">Soluciones</a>
+    <a href="#agentes">Agentes</a>
+    <a href="#casos">Casos</a>
+  </div>
+  <a href="#cta" class="nav-btn">Agenda una demo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Ingeniería comercial aplicada</div>
+    <h1>Tu negocio, funcionando<br>a otro nivel.<br><span>Con 8 agentes IA que no descansan.</span></h1>
+    <p class="hero-sub">No se trata de reemplazar personas — se trata de liberar su potencial. Cuando los agentes IA se encargan de lo repetitivo, tu equipo se dedica a lo que realmente importa: pensar, crear y cerrar.</p>
+    <div class="hero-actions">
+      <a href="#problema" class="btn-main">
+        Descubrir cómo funciona
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 9l5 5 5-5"/></svg>
+      </a>
+      <a href="#agentes" class="btn-ghost">
+        Ver los 8 agentes
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="hero-numbers">
+      <div><div class="hnum-val">8</div><div class="hnum-lbl">agentes especializados<br>listos para implementar</div></div>
+      <div><div class="hnum-val">24/7</div><div class="hnum-lbl">tu equipo amplificado<br>sin horarios ni límites</div></div>
+      <div><div class="hnum-val">21×</div><div class="hnum-lbl">más conversiones con<br>respuesta en 5 minutos</div></div>
+      <div><div class="hnum-val">5</div><div class="hnum-lbl">sectores con soluciones<br>construidas desde adentro</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EL PROBLEMA -->
+<section class="sec problema-sec" id="problema">
+  <div class="problema-intro rv">
+    <span class="sec-tag">El problema actual</span>
+    <h2 class="sec-title">¿Por qué las empresas siguen perdiendo oportunidades a pesar de invertir más?</h2>
+    <p>No es falta de presupuesto ni de talento. Es un problema estructural: <strong>los procesos que deberían ser automáticos siguen consumiendo el tiempo de las personas más valiosas de tu equipo</strong>, dejándolas sin espacio para lo que realmente genera valor. Elige tu industria y te mostramos exactamente dónde se rompe el funnel.</p>
+  </div>
+
+  <div class="sector-tabs rv d1">
+    <button class="stab on" onclick="showSector('edu',this)">Educación</button>
+    <button class="stab" onclick="showSector('fin',this)">Financieras</button>
+    <button class="stab" onclick="showSector('ong',this)">ONGs</button>
+    <button class="stab" onclick="showSector('ser',this)">Servicios Profesionales</button>
+    <button class="stab" onclick="showSector('pym',this)">Pymes</button>
+  </div>
+
+  <!-- EDUCACIÓN -->
+  <div class="sector-body on" id="sec-edu">
+    <div class="sector-lede rv">
+      <div>
+        <h3>Educación: tu campaña mueve el presupuesto. <em>Tu TC Lead→Matrícula no se mueve.</em> Algo en el medio está fallando.</h3>
+        <p>Postulantes hay. El problema ocurre entre el primer clic y la ficha de inscripción confirmada. En instituciones con miles de leads por campaña, más del 60% de los descalificados nunca recibió seguimiento oportuno. El Costo de Adquisición por Nuevo Alumno sigue subiendo sin que nadie sepa exactamente dónde está la fuga.</p>
+      </div>
+      <div class="sector-lede-stat">
+        <div class="big">60%</div>
+        <div class="lbl">de descalificados sin seguimiento oportuno</div>
+      </div>
+    </div>
+    <div class="pains-grid">
+      <div class="pain rv d1">
+        <div class="pain-lbl">Respuesta — velocidad de atención</div>
+        <h4>El postulante consulta por WhatsApp a las 9pm. El asesor llega a las 9am. Ya eligió otra institución.</h4>
+        <p>En instituciones con procesos de admisión sin automatización, el tiempo entre el primer contacto y la primera respuesta supera las 24 horas — incluso con equipos grandes. En ese tiempo, el postulante comparó, evaluó y tomó una decisión. La TC en canales instantáneos no se mide porque duele verla.</p>
+      </div>
+      <div class="pain rv d2">
+        <div class="pain-lbl">Nurturing — personalización por carrera y campus</div>
+        <h4>El mismo mensaje para el postulante de Administración y el de Ingeniería. Y la tasa de abandono antes de matrícula lo refleja.</h4>
+        <p>Sin segmentación por carrera, sede ni perfil, el follow-up post-captación es idéntico para todos. En instituciones con múltiples campus y programas, esto se traduce en miles de postulantes que avanzan en el funnel sin información relevante para su caso — y abandonan antes del examen o de la entrevista.</p>
+      </div>
+      <div class="pain rv d3">
+        <div class="pain-lbl">Equipo — CPA por nuevo alumno</div>
+        <h4>El asesor de admisiones invierte horas en postulantes que nunca iban a matricularse. El CPA por nuevo alumno lo paga.</h4>
+        <p>En campañas de alto volumen — más de 1,000 leads por proceso de admisión — sin precalificación automática, el equipo humano se convierte en el primer filtro. Los mejores asesores están al teléfono con leads fríos mientras los postulantes con intención real esperan respuesta.</p>
+      </div>
+      <div class="pain rv d4">
+        <div class="pain-lbl">Visibilidad — TC por carrera y por campus</div>
+        <h4>¿Cuántos postulantes llegaron al examen? ¿Cuántos a la entrevista? ¿Cuántos pagaron la reserva? Nadie lo sabe con exactitud.</h4>
+        <p>La TC por campus, por carrera y por canal existe solo en teoría. Instituciones con más de 10,000 leads anuales gestionados no tienen visibilidad integrada de en qué etapa del proceso de admisión se rompe el embudo — y las decisiones de campaña se siguen tomando "por olfato".</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCIERAS -->
+  <div class="sector-body" id="sec-fin">
+    <div class="sector-lede">
+      <div>
+        <h3>Financieras: tu equipo de asesores no da abasto. <em>Tu cartera de prospectos tampoco avanza.</em> El cuello de botella no está donde crees.</h3>
+        <p>En entidades financieras y microfinancieras, la captación depende casi en su totalidad de que el asesor de crédito esté disponible en el momento exacto en que el prospecto decide consultar. Ese modelo no escala. Mientras el equipo califica manualmente a quien nunca va a desembolsar, los prospectos con perfil real están siendo atendidos por la competencia — muchas veces en minutos, no en días.</p>
+      </div>
+      <div class="sector-lede-stat">
+        <div class="big">7×</div>
+        <div class="lbl">menos conversión si no respondes en la primera hora</div>
+      </div>
+    </div>
+    <div class="pains-grid">
+      <div class="pain rv d1">
+        <div class="pain-lbl">Velocidad — tiempo de respuesta a solicitud</div>
+        <h4>El prospecto que solicita información hoy tiene una oferta de la competencia mañana.</h4>
+        <p>En microfinanzas y crédito de consumo, la decisión es rápida. Un prospecto que no recibe respuesta en la primera hora reduce su probabilidad de conversión en más de 7 veces. El tiempo promedio de respuesta del sector supera las 24 horas — y esa brecha es exactamente donde se pierden los mejores prospectos.</p>
+      </div>
+      <div class="pain rv d2">
+        <div class="pain-lbl">Calificación — ratio solicitudes vs. desembolsos</div>
+        <h4>El asesor de crédito hace de filtro, de ejecutivo y de seguimiento. El CAC por cliente lo refleja.</h4>
+        <p>Sin precalificación automática, el asesor invierte horas en prospectos que no cumplen el perfil mínimo de riesgo. El ratio de solicitudes trabajadas vs. desembolsos reales es bajo — y el Costo de Adquisición por Cliente (CAC) sube no porque los leads sean caros, sino porque el proceso de calificación consume el tiempo equivocado.</p>
+      </div>
+      <div class="pain rv d3">
+        <div class="pain-lbl">Nurturing — LTV del cliente financiero</div>
+        <h4>El prospecto que casi desembolsó desaparece. El cliente que pagó bien nunca recibe una oferta de segundo crédito.</h4>
+        <p>No hay nurturing para quien estuvo cerca pero no llegó al desembolso. No hay reactivación para el cliente con buen historial que podría calificar para un crédito mayor. El LTV del cliente financiero se subutiliza porque no hay sistema que lo active en el momento correcto.</p>
+      </div>
+      <div class="pain rv d4">
+        <div class="pain-lbl">Visibilidad — TC Lead→Solicitud→Desembolso</div>
+        <h4>¿Cuántos prospectos llegaron a la evaluación de riesgo? ¿Cuántos a la firma? Los datos existen en silos — nadie los ve juntos.</h4>
+        <p>La TC Lead→Solicitud→Desembolso es el KPI más importante del proceso comercial en entidades financieras — y en la mayoría de los casos se mide de forma fragmentada, por área, sin visión integrada. Las decisiones de captación se toman sin saber en qué etapa se pierde más valor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONGs -->
+  <div class="sector-body" id="sec-ong">
+    <div class="sector-lede">
+      <div>
+        <h3>ONGs: tu causa mueve a las personas. <em>Tu tasa de retención de donantes, todavía no lo refleja.</em></h3>
+        <p>El problema no es visibilidad ni propósito. Es que el journey del donante depende de un equipo pequeño que no puede estar en todos lados. Hemos trabajado con organizaciones que superaron su meta de captación en más del 20% — y cuyo mayor reto seguía siendo la retención, porque el seguimiento post-donación era manual y tardío.</p>
+      </div>
+      <div class="sector-lede-stat">
+        <div class="big">+80%</div>
+        <div class="lbl">crecimiento posible con el mismo equipo</div>
+      </div>
+    </div>
+    <div class="pains-grid">
+      <div class="pain grn rv d1">
+        <div class="pain-lbl">Retención — tasa de donante primerizo</div>
+        <h4>El donante dona una vez y desaparece. No porque la causa no le importe — porque nadie lo acompañó cuando todavía estaba comprometido.</h4>
+        <p>Organizaciones con bases de más de 9,000 contactos activos y crecimiento interanual de +80% siguen perdiendo donantes primerizos por falta de seguimiento oportuno. La Tasa de Retención de Donante Nuevo es el KPI que más duele ver — y el que más puede mejorar con automatización inteligente.</p>
+      </div>
+      <div class="pain grn rv d2">
+        <div class="pain-lbl">Nurturing — segmentación B2C y B2B</div>
+        <h4>El mismo newsletter para el donante individual y para la empresa que dona S/50,000 en RSE. La tasa de apertura lo dice todo.</h4>
+        <p>Sin segmentación real entre donante nuevo, recurrente, inactivo y corporativo B2B, la comunicación pierde relevancia. Organizaciones que pasaron de envíos masivos a nurturing segmentado por perfil mejoraron el engagement en más del 60% — con el mismo equipo de comunicación.</p>
+      </div>
+      <div class="pain grn rv d3">
+        <div class="pain-lbl">Conversión B2B — ciclo de donación corporativa</div>
+        <h4>La empresa que quiere ser aliada estratégica espera semanas para recibir una propuesta. Para entonces, ya encontró otra organización.</h4>
+        <p>El ciclo de donación corporativa B2B es largo. Sin seguimiento estructurado desde el primer contacto, el Costo de Adquisición por Donante Corporativo se dispara y la tasa de cierre se desploma. Una empresa que contacta para explorar una alianza puede cerrar en semanas — si alguien le da seguimiento desde el día uno.</p>
+      </div>
+      <div class="pain grn rv d4">
+        <div class="pain-lbl">Fidelización — LTV del donante corporativo</div>
+        <h4>Sin métricas de impacto por alianza, cada renovación es una negociación desde cero.</h4>
+        <p>Las empresas renuevan cuando ven datos. Sin un sistema que registre y comunique el impacto específico de cada donación corporativa, el LTV del donante más valioso del portafolio depende de que alguien recuerde hacer la llamada a tiempo. Casi nunca ocurre.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICIOS PROFESIONALES -->
+  <div class="sector-body" id="sec-ser">
+    <div class="sector-lede">
+      <div>
+        <h3>Servicios profesionales: tu servicio es excelente. <em>Tu proceso de captación de nuevos clientes, todavía no.</em></h3>
+        <p>Lo hemos visto en empresas de servicios B2B con pipelines de varios millones en gestión activa: el volumen de oportunidades está, la capacidad técnica está, pero nadie sabe exactamente en qué etapa del proceso comercial se pierde cada oportunidad. Las decisiones se toman en reunión, de memoria.</p>
+      </div>
+      <div class="sector-lede-stat">
+        <div class="big">29h</div>
+        <div class="lbl">promedio de respuesta al primer contacto</div>
+      </div>
+    </div>
+    <div class="pains-grid">
+      <div class="pain acc rv d1">
+        <div class="pain-lbl">Captación — TC de consulta a cliente</div>
+        <h4>La consulta inicial llega el viernes a las 7pm. La respuesta llega el lunes. El cliente ya eligió.</h4>
+        <p>El tiempo de respuesta al primer contacto en servicios profesionales supera las 29 horas en promedio. Para alguien que busca una firma de abogados para un caso urgente o un contador para el cierre de mes, ese tiempo es eterno. La Tasa de Conversión de Consulta a Cliente cae exactamente ahí.</p>
+      </div>
+      <div class="pain acc rv d2">
+        <div class="pain-lbl">Visibilidad — pipeline y previsión de ingresos</div>
+        <h4>Nadie sabe con exactitud cuántas cotizaciones están en negociación ni cuánto se puede esperar cerrar este mes.</h4>
+        <p>Empresas con pipelines de varios millones en gestión activa siguen tomando decisiones comerciales sin visibilidad en tiempo real. La previsión de ingresos se hace en reunión semanal, de memoria. Cuando una oportunidad se cae, nadie sabe cuándo ni por qué.</p>
+      </div>
+      <div class="pain acc rv d3">
+        <div class="pain-lbl">Eficiencia — ratio horas facturable vs. administrativo</div>
+        <h4>El equipo más valioso hace seguimiento de cotizaciones en lugar de cerrar contratos.</h4>
+        <p>El 40% del tiempo del equipo se va en tareas que no facturan: agendar, confirmar, recordar, enviar propuestas, perseguir respuestas. El Ratio de Horas Facturable vs. Administrativo raramente se mide — y cuando se hace, incomoda.</p>
+      </div>
+      <div class="pain acc rv d4">
+        <div class="pain-lbl">Crecimiento — tasa de referidos</div>
+        <h4>Los mejores clientes vienen por referidos. Pero no hay proceso para activarlos sistemáticamente.</h4>
+        <p>La Tasa de Referidos es el KPI más subestimado en servicios profesionales — y el más rentable. Sin seguimiento y reactivación de clientes satisfechos, los referidos llegan por azar, no por diseño. Ese crecimiento no aparece en ninguna campaña — aparece en el proceso.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYMES -->
+  <div class="sector-body" id="sec-pym">
+    <div class="sector-lede">
+      <div>
+        <h3>Pymes: tu negocio creció. Tu operación también. <em>Pero el dueño sigue siendo el cuello de botella.</em></h3>
+        <p>En una pyme que crece, el primer problema que aparece no es la demanda — es que todo depende de una o dos personas clave. El dueño atiende el WhatsApp, responde cotizaciones, hace seguimiento de propuestas y cierra ventas. Ese tiempo tiene un costo enorme que no aparece en ningún reporte.</p>
+      </div>
+      <div class="sector-lede-stat">
+        <div class="big">78%</div>
+        <div class="lbl">de pymes con IA atienden más clientes sin contratar</div>
+      </div>
+    </div>
+    <div class="pains-grid">
+      <div class="pain pur rv d1">
+        <div class="pain-lbl">Operación — dependencia de personas clave</div>
+        <h4>Cuando la persona que sabe no está disponible, el negocio no responde. Y el cliente no espera.</h4>
+        <p>El proceso de atención, cotización y seguimiento depende de que una persona específica esté disponible. Sin esa persona, el tiempo de respuesta se dispara y la TC de lead a cliente cae. El CAC sube no porque los leads sean malos — sino porque el proceso de conversión no funciona sin intervención humana constante.</p>
+      </div>
+      <div class="pain pur rv d2">
+        <div class="pain-lbl">Velocidad — ratio leads atendidos vs. perdidos</div>
+        <h4>El cliente potencial consulta el sábado. Recibe respuesta el lunes. Ya compró en otro lado.</h4>
+        <p>El ratio de leads atendidos en menos de 2 horas vs. los que esperan más de 24 horas es lo que más diferencia a las pymes que crecen de las que se estancan. No es un problema de precio ni de producto — es un problema de velocidad de respuesta, especialmente en WhatsApp donde el cliente espera respuesta en minutos.</p>
+      </div>
+      <div class="pain pur rv d3">
+        <div class="pain-lbl">Conversión — tasa de cierre de propuestas</div>
+        <h4>Se envió la cotización. No hay respuesta. Nadie la persigue. La oportunidad desaparece sin que nadie lo note.</h4>
+        <p>La Tasa de Cierre de Propuestas es uno de los KPIs más reveladores de una pyme — y el más descuidado. Sin sistema de seguimiento, el equipo no sabe si la propuesta se abrió, si hay dudas, si el cliente está comparando. El seguimiento queda en manos de quien tenga tiempo. Casi nunca es nadie.</p>
+      </div>
+      <div class="pain pur rv d4">
+        <div class="pain-lbl">Crecimiento — tasa de recompra y referidos</div>
+        <h4>Tu mejor fuente de nuevos clientes son tus clientes actuales. Sin proceso, la inercia no es una estrategia de crecimiento.</h4>
+        <p>La Tasa de Recompra y la Tasa de Referidos son los KPIs más rentables para una pyme. Negocios que implementaron seguimiento post-venta automatizado vieron crecer su cartera activa sin aumentar inversión en captación. Sin proceso, ese crecimiento depende de que el cliente recuerde volver. Casi nunca lo hace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section class="sec funnel-sec" id="funnel">
+  <div class="funnel-intro rv">
+    <span class="sec-tag">El funnel</span>
+    <h2 class="sec-title">Un funnel lleno de fugas<br>en cada etapa</h2>
+    <p>Conocemos el recorrido real de cientos de empresas en LATAM. En cada etapa hay un punto donde el valor se escapa — y donde un agente puede recuperarlo.</p>
+  </div>
+  <div class="funnel-grid">
+    <div class="fstep rv d1">
+      <div class="fstep-num">1</div>
+      <div class="fstep-label">Atracción</div>
+      <div class="fstep-issue">El muro invisible</div>
+      <p>El tráfico llega pero choca con formularios largos y genéricos. Más del 80% abandona antes de dejar sus datos.</p>
+    </div>
+    <div class="fstep rv d2">
+      <div class="fstep-num">2</div>
+      <div class="fstep-label">Conversión</div>
+      <div class="fstep-issue">El bot como barrera</div>
+      <p>Bots que recopilan datos sin entender el contexto real. 7 de cada 10 leads nunca reciben una respuesta útil.</p>
+    </div>
+    <div class="fstep rv d3">
+      <div class="fstep-num">3</div>
+      <div class="fstep-label">Seguimiento</div>
+      <div class="fstep-issue">Ausencia post-contacto</div>
+      <p>Mensajes iguales para todos, sin segmentación ni contexto. Leads calientes se enfrían sin que nadie lo detecte.</p>
+    </div>
+    <div class="fstep rv d4">
+      <div class="fstep-num">4</div>
+      <div class="fstep-label">Cierre</div>
+      <div class="fstep-issue">El embudo se atasca</div>
+      <p>El equipo recibe demasiados leads sin priorizar, invierte tiempo en los que nunca van a cerrar. La conversión final cae.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIONES -->
+<section class="sec soluciones-sec" id="soluciones">
+  <div class="sol-intro rv">
+    <span class="sec-tag">Oportunidades de cambio</span>
+    <h2 class="sec-title">¿Cómo lo están logrando<br>las empresas que cambiaron?</h2>
+    <p>No es que las empresas no quieran mejorar su conversión. Es que llevan años aplicando soluciones técnicas a problemas estratégicos. Las que están cambiando el resultado no lo hacen porque tengan más presupuesto — lo hacen porque alguien les mostró dónde estaba la fuga real.</p>
+  </div>
+
+  <!-- SECTOR TABS — mismo selector que la sección de problema -->
+  <div class="sector-tabs rv d1" style="margin-bottom:36px;">
+    <button class="stab on" onclick="showSol('edu',this)">Educación</button>
+    <button class="stab" onclick="showSol('fin',this)">Financieras</button>
+    <button class="stab" onclick="showSol('ong',this)">ONGs</button>
+    <button class="stab" onclick="showSol('ser',this)">Servicios Profesionales</button>
+    <button class="stab" onclick="showSol('pym',this)">Pymes</button>
+  </div>
+
+  <!-- ── EDUCACIÓN ── -->
+  <div class="sol-sector on" id="sol-edu">
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El postulante llena el formulario y espera. Nadie responde antes de que elija otra institución.</h4>
+          <p>El primer contacto llega fuera del horario de los asesores. Sin automatización, la respuesta tarda más de 24 horas — y en ese tiempo el postulante ya comparó otras opciones. La TC Lead→Matrícula cae exactamente ahí, no en la campaña.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Respuesta inmediata en WhatsApp o web, con el perfil del postulante ya construido.</h4>
+          <p>El agente responde en minutos, identifica la carrera y el campus de interés, hace las preguntas clave y agenda la siguiente acción — antes de que el asesor llegue a la oficina. El equipo recibe al postulante calificado, no al que acaba de consultar.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Instituciones que automatizaron el primer contacto mejoraron más del 30% su tasa de postulantes que avanzan al proceso de admisión.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El mismo nurturing para el postulante de Administración y el de Ingeniería. Para Lima y para provincia.</h4>
+          <p>Sin segmentación por carrera, campus ni perfil, el seguimiento post-captación es idéntico para todos. El postulante no recibe información relevante para su caso — y la tasa de abandono antes de la matrícula lo refleja.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Nurturing diferenciado por carrera, campus y etapa del proceso de admisión.</h4>
+          <p>Cada postulante recibe contenido específico: fechas de su proceso, información de su programa, pasos para su sede. El sistema ajusta el mensaje según en qué etapa está — ficha, examen, entrevista, reserva de matrícula.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Instituciones con nurturing segmentado por programa redujeron más del 25% el abandono antes del pago de la reserva.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El asesor de admisiones califica leads en lugar de cerrar matrículas. El CPA por nuevo alumno sube cada ciclo.</h4>
+          <p>Con más de 1,000 leads por proceso, sin precalificación automática el equipo humano se convierte en el primer filtro. Los mejores asesores están al teléfono con leads fríos mientras los postulantes con intención real esperan.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Lead scoring automático: el asesor interviene solo cuando el postulante ya está listo.</h4>
+          <p>El agente precalifica según criterios definidos por el equipo de admisiones — carrera, modalidad, disponibilidad, historial — y transfiere al asesor con el expediente completo. El CPA por nuevo alumno baja porque el equipo trabaja solo con oportunidades reales.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Equipos con calificación inteligente redujeron en 40% la carga de asesores y mejoraron la TC de entrevista a matrícula.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>La TC por campus y por carrera existe solo en teoría. Las decisiones de campaña se toman "por olfato".</h4>
+          <p>Sin visibilidad integrada del funnel, nadie sabe exactamente en qué etapa del proceso de admisión se rompe el embudo. El presupuesto de campaña se distribuye sin saber qué canal, qué carrera o qué campus convierte mejor.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Dashboard en tiempo real: TC por carrera, por campus, por canal y por etapa del proceso.</h4>
+          <p>Marketing, admisiones y dirección ven el mismo dato: cuántos postulantes llegaron al examen, cuántos a la entrevista, cuántos pagaron la reserva — por programa y sede. Las decisiones de inversión se toman con datos, no en reunión.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Instituciones con dashboards por campus y carrera optimizaron su distribución de presupuesto y bajaron el CPA por nuevo alumno en más de un ciclo consecutivo.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FINANCIERAS ── -->
+  <div class="sol-sector" id="sol-fin">
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El prospecto solicita información y espera más de 24 horas. Para entonces, ya eligió otra entidad.</h4>
+          <p>En microfinanzas y crédito de consumo, la decisión es rápida. Sin respuesta en la primera hora, la probabilidad de conversión cae más de 7 veces. Y el tiempo promedio de respuesta del sector supera las 24 horas.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Respuesta inmediata por WhatsApp o web — 24/7, con precalificación de perfil de riesgo.</h4>
+          <p>El agente responde en minutos, recopila la información clave del prospecto, hace la precalificación inicial según los criterios de la entidad y agenda la cita con el asesor de crédito — con el perfil ya construido, no con un nombre y un número.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Entidades que automatizaron el primer contacto mejoraron más del 35% su ratio de solicitudes que llegan a evaluación de riesgo.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El asesor de crédito califica manualmente a prospectos que no cumplen el perfil. El CAC sube sin que nadie sepa por qué.</h4>
+          <p>Sin precalificación automática, el asesor invierte horas en prospectos que no van a desembolsar. El ratio de solicitudes trabajadas vs. desembolsos reales es bajo — y el Costo de Adquisición por Cliente lo refleja.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Precalificación automática según criterios de riesgo de la entidad. El asesor solo atiende oportunidades reales.</h4>
+          <p>El agente filtra según los parámetros que define la entidad — perfil de ingresos, historial, tipo de crédito solicitado — y entrega al asesor solo los prospectos que cumplen los criterios mínimos. El tiempo del asesor va a donde genera valor.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Entidades con precalificación automática redujeron en más del 40% el tiempo invertido en solicitudes que no llegan a desembolso.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El cliente que casi desembolsó desaparece. El buen pagador nunca recibe una oferta de segundo crédito.</h4>
+          <p>No hay nurturing para quien estuvo cerca pero no llegó al desembolso. No hay reactivación para el cliente con buen historial que podría calificar para un crédito mayor. El LTV del cliente financiero se subutiliza porque no hay sistema que lo active.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Seguimiento automático por etapa: reactivación de prospectos fríos y cross-sell al buen pagador.</h4>
+          <p>El agente detecta al prospecto que llegó hasta la evaluación pero no firmó y lanza la secuencia de reactivación. Detecta al cliente que completó su primer crédito sin mora y le ofrece la siguiente opción en el momento correcto — sin que el asesor tenga que recordarlo.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Entidades con nurturing post-solicitud aumentaron en más del 20% su tasa de conversión de prospectos fríos reactivados.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>La TC Lead→Solicitud→Desembolso se mide por área, en silos. Nadie ve el funnel completo.</h4>
+          <p>Los datos existen — pero distribuidos en sistemas distintos. Marketing no sabe qué leads llegaron a evaluación. Riesgos no sabe de qué canal vinieron los que sí desembolsaron. Las decisiones de captación se toman sin esa visión integrada.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Visibilidad integrada del funnel completo: desde el lead hasta el desembolso, por canal y por perfil.</h4>
+          <p>Marketing, riesgos y dirección ven el mismo dashboard: cuántos leads llegaron, cuántos pasaron la precalificación, cuántos llegaron a firma, cuántos desembolsaron — por canal de captación y por tipo de crédito. Las decisiones de inversión se toman con datos reales.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Entidades con visibilidad integrada del funnel optimizaron su mix de canales y redujeron su CAC en más del 30% en los primeros dos ciclos.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ONGs ── -->
+  <div class="sol-sector" id="sol-ong">
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El donante primerizo dona una vez y desaparece. Nadie lo acompañó cuando todavía estaba comprometido.</h4>
+          <p>Entre la primera donación y el primer mensaje de impacto pasan semanas. Para entonces el vínculo emocional ya se enfrió. La Tasa de Retención de Donante Nuevo es el KPI que más duele — y el más evitable.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Secuencia de bienvenida y reporte de impacto automática — en las 48 horas siguientes a la primera donación.</h4>
+          <p>El donante recibe un mensaje personalizado con el impacto específico de su aporte, la historia detrás del programa que financió y el siguiente paso para comprometerse más. Todo automático, todo en el momento correcto — sin que el equipo tenga que recordarlo.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Organizaciones con secuencia de bienvenida automatizada aumentaron más del 35% su Tasa de Retención de Donante Nuevo en el primer año.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El mismo newsletter para el donante individual y para la empresa que dona en RSE. Nadie siente que lo entienden.</h4>
+          <p>Sin segmentación real entre donante nuevo, recurrente, inactivo y corporativo B2B, la comunicación es idéntica para todos. La tasa de apertura baja, el engagement cae y los mejores donantes se desconectan en silencio.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Comunicación diferenciada por perfil: el donante individual recibe historias, el corporativo recibe métricas de impacto.</h4>
+          <p>El sistema segmenta automáticamente y envía el contenido correcto para cada perfil. El donante recurrente recibe su reporte de impacto acumulado. El inactivo recibe una reactivación personalizada. El corporativo recibe la memoria de RSE lista para su informe interno.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Organizaciones con nurturing segmentado por perfil de donante mejoraron más del 60% su tasa de apertura de comunicaciones vs. envíos masivos.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>La empresa que quiere ser aliada corporativa espera semanas para recibir una propuesta. Para entonces encontró otra ONG.</h4>
+          <p>El ciclo de donación B2B es largo — pero empieza mal si no hay seguimiento desde el primer contacto. Sin proceso estructurado, el Costo de Adquisición por Donante Corporativo se dispara y la tasa de cierre se desploma.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Seguimiento automático al donante corporativo: desde el primer contacto hasta la firma de la alianza.</h4>
+          <p>El agente responde en minutos, cualifica el tipo de alianza que busca la empresa, agenda la reunión con el equipo de recaudación y envía la propuesta inicial adaptada al perfil de RSE del prospecto. El equipo solo entra cuando la empresa ya está calificada.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Organizaciones con proceso automatizado de captación B2B redujeron a la mitad el tiempo desde el primer contacto hasta la firma de la primera alianza corporativa.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>Sin métricas de impacto por alianza, cada renovación corporativa es una negociación desde cero.</h4>
+          <p>Las empresas renuevan cuando ven datos. Sin un sistema que registre y comunique el impacto específico de cada donación — beneficiarios alcanzados, programas financiados, indicadores logrados — el LTV del donante corporativo depende de que alguien recuerde hacer la llamada a tiempo.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Reporte de impacto automático por alianza — listo para el informe de RSE de la empresa donante.</h4>
+          <p>El sistema registra cada hito del programa financiado por la empresa, consolida el impacto en el formato que necesita el donante corporativo y envía el reporte en el momento correcto — antes de que llegue la reunión de renovación, no después.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Organizaciones con reporting automatizado por alianza mejoraron más del 70% su tasa de renovación de donantes corporativos en el segundo año.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICIOS PROFESIONALES ── -->
+  <div class="sol-sector" id="sol-ser">
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>La consulta llega el viernes a las 7pm. La respuesta llega el lunes. El cliente ya firmó con otro.</h4>
+          <p>El tiempo de respuesta al primer contacto en servicios profesionales supera las 29 horas. Para alguien que busca una firma para un caso urgente, ese tiempo es eterno. La Tasa de Conversión de Consulta a Cliente cae exactamente ahí — no en la propuesta.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Respuesta en menos de 2 minutos, con las preguntas de diagnóstico ya respondidas antes del lunes.</h4>
+          <p>El agente responde en cualquier hora, hace las preguntas clave del diagnóstico inicial, califica según los criterios de la firma y agenda la primera reunión con el socio correspondiente. El equipo llega el lunes con reuniones confirmadas — no con prospectos fríos por recuperar.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Firmas con agente de respuesta 24/7 mejoraron más del 40% su Tasa de Conversión de Consulta a Primera Reunión.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El pipeline existe en la cabeza del equipo. Nadie sabe cuánto se puede cerrar este mes hasta que llega la reunión semanal.</h4>
+          <p>Empresas con pipelines de varios millones en gestión activa siguen tomando decisiones comerciales de memoria. Cuando una cotización se cae, nadie sabe cuándo ni por qué. La previsión de ingresos es una estimación, no un dato.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Dashboard de pipeline en tiempo real: cada cotización en su etapa, con actividad registrada por propietario.</h4>
+          <p>El equipo directivo ve el estado real de cada oportunidad en 30 segundos — sin depender de actualizaciones manuales ni de reuniones semanales. La previsión de ingresos es un dato, no una opinión. Y cuando una oportunidad se enfría, el sistema lo detecta antes de que se pierda.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Firmas con pipeline visible en tiempo real mejoraron más del 25% su tasa de cierre de propuestas al detectar a tiempo las oportunidades que necesitaban seguimiento urgente.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El 40% del tiempo del equipo se va en tareas que no facturan. El Ratio Horas Facturable vs. Administrativo lo dice todo.</h4>
+          <p>Agendar, confirmar, recordar, enviar propuestas, perseguir respuestas. El especialista — el recurso más caro — invierte horas en seguimiento de cotizaciones en lugar de estar en trabajo facturable o construyendo relaciones.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Seguimiento automático de propuestas y cotizaciones — el especialista interviene solo cuando hay una decisión que tomar.</h4>
+          <p>El agente hace el seguimiento: envía recordatorios, detecta si la propuesta fue abierta, pregunta si hay dudas y escala al especialista solo cuando el cliente está listo para decidir. El Ratio Horas Facturable mejora sin contratar a nadie.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Firmas con seguimiento automatizado de propuestas recuperaron en promedio más del 30% del tiempo del equipo para trabajo facturable.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>Los mejores clientes vienen por referidos. Pero no hay proceso para activarlos — llegan por azar, no por diseño.</h4>
+          <p>Sin seguimiento post-proyecto, los clientes satisfechos no vuelven por diseño — vuelven por inercia. Y la Tasa de Referidos, el KPI más rentable de una firma de servicios, depende de que alguien recuerde pedirlos en el momento correcto.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Reactivación automática de clientes satisfechos en el momento correcto — referidos y recompra por proceso, no por azar.</h4>
+          <p>El sistema detecta el cierre de un proyecto y lanza la secuencia post-entrega: encuesta de satisfacción, reporte de resultados y, en el momento óptimo, la invitación a referir o la oferta del siguiente servicio. La Tasa de Referidos pasa de ser un dato a ser una palanca.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Firmas con proceso de reactivación post-proyecto aumentaron más del 45% su Tasa de Referidos en los primeros seis meses de implementación.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PYMES ── -->
+  <div class="sol-sector" id="sol-pym">
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El cliente consulta el sábado. Recibe respuesta el lunes. Para entonces ya compró en otro lado.</h4>
+          <p>El ratio de leads atendidos en menos de 2 horas vs. los que esperan más de 24 horas es lo que más diferencia a las pymes que crecen de las que se estancan. No es un problema de precio — es un problema de velocidad. Y el CAC lo refleja.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Respuesta automática en minutos por WhatsApp — cualquier hora, cualquier día, con calificación incluida.</h4>
+          <p>El agente responde inmediatamente, hace las preguntas de calificación, da la información que el cliente necesita y agenda la siguiente acción — sin que nadie del equipo tenga que estar disponible. El dueño llega el lunes con leads ya trabajados.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Pymes con respuesta automatizada en WhatsApp recuperaron más del 35% de los leads que antes se perdían fuera del horario laboral.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>Todo depende del dueño o de una persona clave. Cuando no está, el negocio no responde.</h4>
+          <p>El proceso de atención, cotización y seguimiento depende de que una persona específica esté disponible. Sin esa persona, el tiempo de respuesta se dispara, la TC de lead a cliente cae y el CAC sube — no porque los leads sean malos, sino porque el proceso no funciona sin intervención humana constante.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Procesos de atención y calificación que funcionan independientemente de quién esté disponible.</h4>
+          <p>El agente atiende, califica y registra — las 24 horas, los 7 días. El dueño o el vendedor interviene cuando el lead ya está listo para hablar de precio o para cerrar. El negocio funciona aunque el equipo no esté disponible en ese momento.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>El 78% de las pymes que implementaron agentes IA reportan atender más clientes con el mismo equipo, sin contratar personal adicional.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>Se envió la cotización. No hay respuesta. Nadie la persigue. La oportunidad desaparece sin que nadie lo note.</h4>
+          <p>La Tasa de Cierre de Propuestas es uno de los KPIs más reveladores de una pyme — y el más descuidado. Sin sistema de seguimiento, no hay forma de saber si la propuesta se abrió, si hay dudas o si el cliente está comparando. El seguimiento queda en manos de quien tenga tiempo. Casi nunca es nadie.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Seguimiento automático de cotizaciones enviadas — recordatorio, consulta de dudas y reactivación incluidos.</h4>
+          <p>El agente detecta cuándo una propuesta lleva más de X días sin respuesta y lanza la secuencia: recordatorio amigable, pregunta por dudas, oferta de una llamada rápida. La Tasa de Cierre de Propuestas sube sin que el dueño tenga que perseguir a nadie.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Pymes con seguimiento automatizado de cotizaciones mejoraron más del 30% su Tasa de Cierre de Propuestas en los primeros 60 días.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>Los clientes satisfechos no vuelven porque nadie los activa. La Tasa de Recompra depende de que el cliente se acuerde.</h4>
+          <p>Sin seguimiento post-venta, la cartera activa crece solo con nuevos clientes — el canal más caro. La Tasa de Recompra y la Tasa de Referidos, los KPIs más rentables de una pyme, se dejan al azar porque no hay proceso que los active.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Reactivación automática de clientes post-venta — recompra y referidos por proceso, no por inercia.</h4>
+          <p>El agente detecta el cierre de una venta y lanza la secuencia post-compra: agradecimiento, seguimiento de satisfacción y, en el momento correcto, la oferta del próximo servicio o la invitación a referir. La cartera activa crece sin aumentar la inversión en captación.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Pymes con proceso de reactivación post-venta aumentaron más del 40% su Tasa de Recompra y redujeron su dependencia de captación nueva para sostener el crecimiento.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIACIÓN -->
+<section class="dif-sec" id="diferenciacion">
+  <div class="dif-intro rv">
+    <span class="sec-tag light">Por qué no es lo mismo que lo que ya conoces</span>
+    <h2 class="sec-title white">No es cuestión de herramientas.<br>Es cuestión de saber para qué sirven.</h2>
+    <p>El mercado está lleno de quienes instalan agentes. ¿Sabes por qué fracasa la mayoría de implementaciones de IA en empresas de LATAM? No por falta de tecnología. Por falta de profundidad estratégica y conocimiento del sector. Cualquiera puede aprender a usar las herramientas. No cualquiera entiende en qué etapa del proceso de admisión de una universidad se pierde el mayor porcentaje de postulantes — ni cómo resolverlo sin romper lo que ya funciona.</p>
+  </div>
+
+  <div class="dif-quotes">
+    <div class="dif-quote rv d1">
+      <p>"No es una cuestión de mentalidad técnica. Es una cuestión altamente estratégica. No es la fortaleza en lo específico — es la visión en lo integral."</p>
+    </div>
+    <div class="dif-quote rv d2">
+      <p>"No es solo saber usar n8n. No es solo hacer agentes. No es solo Inbound Marketing — es Ventas Inbound, es Servicio Inbound, es el proceso comercial completo con criterio estratégico."</p>
+    </div>
+    <div class="dif-quote rv d3">
+      <p>"¿Sabes por qué fracasan también los desarrollos IA? Por falta de conocimiento del sector y ausencia de profundidad estratégica de negocio. Detrás de cada agente de Agéntica hay más de 20 años trabajando en LATAM. Eso no se improvisa."</p>
+    </div>
+  </div>
+
+  <div class="rv">
+    <table class="dif-table">
+      <thead>
+        <tr>
+          <th>Lo que abunda en el mercado</th>
+          <th>Lo que diferencia a Agéntica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Mentalidad técnica</td><td><strong>Mentalidad de negocio</strong></td></tr>
+        <tr><td>Saben usar las herramientas</td><td><strong>Saben qué problema de negocio resolver primero</strong></td></tr>
+        <tr><td>Hacen agentes</td><td><strong>Diseñan soluciones comerciales medibles</strong></td></tr>
+        <tr><td>Hablan de automatización</td><td><strong>Hablan de tu TC, tu CPA, tu LTV, tu CAC</strong></td></tr>
+        <tr><td>Inbound Marketing</td><td><strong>Inbound Marketing + Ventas + Servicio Inbound</strong></td></tr>
+        <tr><td>Implementan y facturan</td><td><strong>Acompañan hasta que los resultados aparecen</strong></td></tr>
+        <tr><td>Fortaleza técnica específica</td><td><strong>Visión estratégica integral — 20+ años en LATAM</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- AGENTES -->
+<section class="sec agentes-sec" id="agentes">
+  <div class="agentes-intro rv">
+    <span class="sec-tag">El marketplace</span>
+    <h2 class="sec-title">8 agentes. Un marketplace.<br>Implementación guiada desde el día uno.</h2>
+    <p>No es un bot de respuestas automáticas. Es un equipo completo de agentes especializados, cada uno diseñado para resolver un problema específico de tu negocio. Tu equipo piensa — los agentes ejecutan.</p>
+  </div>
+  <div class="agentes-grid">
+    <div class="ag rv d1">
+      <div class="ag-num">AGENTE 01</div>
+      <div class="ag-name">Onboarding Agéntico</div>
+      <div class="ag-pain">"Necesito IA pero no sé por dónde empezar."</div>
+      <ul class="ag-list">
+        <li>Analiza tu flujo y detecta cuellos de botella</li>
+        <li>Recomienda agentes según tu ROI potencial</li>
+        <li>Acompaña la configuración de inicio a fin</li>
+        <li>Seguridad empresarial SOC2 desde el día uno</li>
+      </ul>
+      <span class="ag-tag">Implementación guiada</span>
+    </div>
+    <div class="ag rv d2">
+      <div class="ag-num">AGENTE 02</div>
+      <div class="ag-name">Recepcionista IA</div>
+      <div class="ag-pain">"Pierdo clientes porque no respondo fuera de horario."</div>
+      <ul class="ag-list">
+        <li>Confirma citas 24/7 sin intervención humana</li>
+        <li>Gestiona cancelaciones y reagendamientos</li>
+        <li>Se integra con tu calendario actual</li>
+        <li>Analíticas de ocupación en tiempo real</li>
+      </ul>
+      <span class="ag-tag">Cero citas perdidas</span>
+    </div>
+    <div class="ag rv d3">
+      <div class="ag-num">AGENTE 03</div>
+      <div class="ag-name">Vendedor IA</div>
+      <div class="ag-pain">"Mi equipo pierde tiempo con leads que nunca comprarán."</div>
+      <ul class="ag-list">
+        <li>Precalifica prospectos por voz o WhatsApp</li>
+        <li>Registra automáticamente en tu CRM</li>
+        <li>Agenda reuniones en el calendario del comercial</li>
+        <li>Disponible 24/7 con voz humana real</li>
+      </ul>
+      <span class="ag-tag">Conectado a tu CRM</span>
+    </div>
+    <div class="ag rv d4">
+      <div class="ag-num">AGENTE 04</div>
+      <div class="ag-name">Singer Morning Brief</div>
+      <div class="ag-pain">"Empiezo el día sin saber qué es urgente."</div>
+      <ul class="ag-list">
+        <li>Revisa tareas y agenda cada mañana</li>
+        <li>Envía resumen priorizado a WhatsApp o Discord</li>
+        <li>Sugiere el orden óptimo de tu jornada</li>
+        <li>Se adapta a tus herramientas actuales</li>
+      </ul>
+      <span class="ag-tag">Daily briefing automático</span>
+    </div>
+    <div class="ag rv d1">
+      <div class="ag-num">AGENTE 05</div>
+      <div class="ag-name">Blue Counter</div>
+      <div class="ag-pain">"Registro contable manual = horas perdidas."</div>
+      <ul class="ag-list">
+        <li>OCR con IA: sube foto o PDF de factura</li>
+        <li>Extrae, categoriza y registra automáticamente</li>
+        <li>Flujo de caja actualizado en tiempo real</li>
+        <li>Reduce el tiempo de cierre contable</li>
+      </ul>
+      <span class="ag-tag">OCR + IA contable</span>
+    </div>
+    <div class="ag rv d2">
+      <div class="ag-num">AGENTE 06</div>
+      <div class="ag-name">Blue Tickets</div>
+      <div class="ag-pain">"Mi equipo de soporte está saturado."</div>
+      <ul class="ag-list">
+        <li>Recibe consultas desde web, teléfono o Discord</li>
+        <li>Crea y clasifica tickets automáticamente</li>
+        <li>Escala al humano correcto según prioridad</li>
+        <li>Métricas de resolución en tiempo real</li>
+      </ul>
+      <span class="ag-tag">Helpdesk autónomo</span>
+    </div>
+    <div class="ag rv d3">
+      <div class="ag-num">AGENTE 07</div>
+      <div class="ag-name">Agente Inbound</div>
+      <div class="ag-pain">"Genero contenido pero no atrae leads calificados."</div>
+      <ul class="ag-list">
+        <li>Diseña y ejecuta estrategia de conversión</li>
+        <li>Genera, optimiza y distribuye contenido</li>
+        <li>Analiza qué contenido genera más pipeline</li>
+        <li>Alinea marketing y ventas con datos</li>
+      </ul>
+      <span class="ag-tag">Leads en piloto automático</span>
+    </div>
+    <div class="ag rv d4">
+      <div class="ag-num">AGENTE 08</div>
+      <div class="ag-name">Traductor en Viva Voz</div>
+      <div class="ag-pain">"El idioma me impide cerrar clientes internacionales."</div>
+      <ul class="ag-list">
+        <li>Traducción simultánea voz a voz, sin delay</li>
+        <li>Soporta múltiples idiomas por interlocutor</li>
+        <li>Mantiene el tono natural de la conversación</li>
+        <li>Sin instalaciones complejas</li>
+      </ul>
+      <span class="ag-tag">Ventas sin barreras</span>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS -->
+<section class="sec caso-sec" id="casos">
+  <div class="caso-intro rv">
+    <span class="sec-tag">Casos de éxito</span>
+    <h2 class="sec-title">Resultados reales,<br>en los sectores que conocemos por dentro.</h2>
+    <p>Implementaciones propias en educación, ONGs y servicios profesionales. Con datos reales de sus propios HubSpot — no benchmarks genéricos.</p>
+  </div>
+
+  <div class="caso-tabs rv d1">
+    <button class="ctab on" onclick="showCaso('edu',this)">Educación — UCSP</button>
+    <button class="ctab" onclick="showCaso('ong',this)">ONG — World Vision</button>
+    <button class="ctab" onclick="showCaso('ser',this)">Servicios Profesionales B2B</button>
+  </div>
+
+  <!-- UCSP -->
+  <div class="caso-body on" id="caso-edu">
+    <div class="caso-left">
+      <span class="caso-sector-pill">Educación</span>
+      <h3>Universidad Católica San Pablo — De más de 10,000 leads por año a un proceso donde el asesor solo habla con postulantes listos para matricularse.</h3>
+      <div class="caso-challenge-label">El desafío</div>
+      <div class="caso-challenge-title">Alto volumen de postulantes por campaña, sin visibilidad de TC por carrera ni por campus.</div>
+      <p>Leads sin atender en las primeras horas, asesores de admisión calificando en lugar de cerrando y cero visibilidad del funnel real por programa y sede. El Costo de Adquisición por Nuevo Alumno crecía cada proceso sin claridad sobre dónde se rompía el embudo.</p>
+      <div class="caso-sol-label">La solución</div>
+      <p>HubSpot con lead scoring por perfil de postulante, nurturing diferenciado por carrera y campus, SLAs de atención medidos en tiempo real y automatización del primer contacto. El asesor recibe al postulante cuando ya está calificado — no cuando acaba de llenar el formulario.</p>
+    </div>
+    <div class="caso-right">
+      <div class="caso-metrics">
+        <div>
+          <div class="cmet-val">+10K</div>
+          <div class="cmet-lbl">leads gestionados anualmente con trazabilidad completa por carrera y campus</div>
+        </div>
+        <div>
+          <div class="cmet-val">+14K</div>
+          <div class="cmet-lbl">contactos con tiempo de respuesta medido bajo SLA definido</div>
+        </div>
+        <div>
+          <div class="cmet-val">+4K</div>
+          <div class="cmet-lbl">descalificados con motivo registrado — visibilidad real del funnel</div>
+        </div>
+        <div>
+          <div class="cmet-val">24/7</div>
+          <div class="cmet-lbl">cobertura de consultas sin aumentar el equipo de admisiones</div>
+        </div>
+      </div>
+      <div class="caso-quote">
+        <p>"El equipo de admisiones ahora llega a cada conversación con el expediente del postulante completo. Ya no califican — cierran."</p>
+        <div class="caso-quote-name">Equipo de Admisiones</div>
+        <div class="caso-quote-role">Universidad Católica San Pablo</div>
+      </div>
+      <div class="caso-source">Datos propios extraídos de HubSpot CRM · Implementación y gestión: Agéntica / Blue Nose</div>
+    </div>
+  </div>
+
+  <!-- WORLD VISION -->
+  <div class="caso-body" id="caso-ong">
+    <div class="caso-left">
+      <span class="caso-sector-pill">ONG</span>
+      <h3>World Vision — De cientos de contactos gestionados manualmente a más de 9,000 leads con visibilidad completa y +80% de crecimiento.</h3>
+      <div class="caso-challenge-label">El desafío</div>
+      <div class="caso-challenge-title">Base de donantes en crecimiento sin segmentación real ni visibilidad del journey por tipo de donante.</div>
+      <p>Los leads llegaban de múltiples fuentes — orgánico, pauta, redes — pero el proceso de validación era manual y los tiempos de respuesta superaban los 25 días en algunos casos. Sin segmentación entre donante nuevo, recurrente y corporativo B2B, la comunicación era idéntica para todos los perfiles.</p>
+      <div class="caso-sol-label">La solución</div>
+      <p>HubSpot Marketing con segmentación por origen, etapa del ciclo de vida y estado de lead. Nurturing diferenciado por perfil de donante y dashboard de campaña en tiempo real. El equipo de recaudación interviene cuando el contacto ya está calificado — no en el primer clic.</p>
+    </div>
+    <div class="caso-right">
+      <div class="caso-metrics">
+        <div>
+          <div class="cmet-val">+9K</div>
+          <div class="cmet-lbl">contactos gestionados en base activa con segmentación por perfil</div>
+        </div>
+        <div>
+          <div class="cmet-val">+80%</div>
+          <div class="cmet-lbl">crecimiento interanual de contactos con el mismo equipo de recaudación</div>
+        </div>
+        <div>
+          <div class="cmet-val">+750</div>
+          <div class="cmet-lbl">MQLs (leads calificados por marketing) sobre base total gestionada</div>
+        </div>
+        <div>
+          <div class="cmet-val">+20%</div>
+          <div class="cmet-lbl">sobre meta de captación superada en campaña específica de recaudación</div>
+        </div>
+      </div>
+      <div class="caso-quote">
+        <p>"Por primera vez tenemos visibilidad de qué donante está en qué etapa y de dónde vino. El equipo ahora se enfoca en las conversaciones que realmente requieren criterio humano."</p>
+        <div class="caso-quote-name">Equipo de Recaudación</div>
+        <div class="caso-quote-role">World Vision</div>
+      </div>
+      <div class="caso-source">Datos propios extraídos de HubSpot CRM · Implementación y gestión: Agéntica / Blue Nose</div>
+    </div>
+  </div>
+
+  <!-- SERVICIOS PROFESIONALES -->
+  <div class="caso-body" id="caso-ser">
+    <div class="caso-left">
+      <span class="caso-sector-pill">Servicios Profesionales B2B</span>
+      <h3>Empresa de servicios especializados B2B — De un pipeline gestionado de memoria a más de MXN 10M en cotizaciones con visibilidad en tiempo real.</h3>
+      <div class="caso-challenge-label">El desafío</div>
+      <div class="caso-challenge-title">Pipeline activo de varios millones en gestión sin visibilidad de etapas ni previsión real de cierre.</div>
+      <p>Las oportunidades estaban — pero nadie sabía con exactitud en qué etapa estaba cada una ni cuánto se podía esperar cerrar en el mes. Las decisiones comerciales se tomaban en reunión semanal, de memoria. Cuando una cotización se caía, nadie sabía cuándo ni por qué.</p>
+      <div class="caso-sol-label">La solución</div>
+      <p>HubSpot Sales con pipeline de cotizaciones por etapa, registro de actividades del equipo en tiempo real y dashboard de previsión de ingresos vs. meta. El equipo directivo ve el estado real de cada negocio en 30 segundos — sin depender de actualizaciones manuales ni de reuniones semanales.</p>
+    </div>
+    <div class="caso-right">
+      <div class="caso-metrics">
+        <div>
+          <div class="cmet-val">+MXN 10M</div>
+          <div class="cmet-lbl">en cotizaciones con trazabilidad completa por etapa y propietario</div>
+        </div>
+        <div>
+          <div class="cmet-val">100%</div>
+          <div class="cmet-lbl">de actividades del equipo registradas en tiempo real por propietario</div>
+        </div>
+        <div>
+          <div class="cmet-val">30seg</div>
+          <div class="cmet-lbl">para saber el estado real del pipeline — sin esperar la reunión semanal</div>
+        </div>
+        <div>
+          <div class="cmet-val">0</div>
+          <div class="cmet-lbl">decisiones comerciales tomadas "de memoria" — todo respaldado en datos</div>
+        </div>
+      </div>
+      <div class="caso-quote">
+        <p>"Antes las decisiones comerciales se tomaban en reunión, de memoria. Ahora entramos al dashboard y en 30 segundos sabemos dónde estamos y qué necesita atención inmediata."</p>
+        <div class="caso-quote-name">Dirección Comercial</div>
+        <div class="caso-quote-role">Empresa de servicios especializados B2B</div>
+      </div>
+      <div class="caso-source">Datos propios extraídos de HubSpot CRM · Implementación y gestión: Agéntica / Blue Nose</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="cta">
+  <div class="cta-inner">
+    <div class="cta-eyebrow rv">¿Listo para cerrar las fugas?</div>
+    <h2 class="rv d1">Tu equipo piensa.<br>Los agentes <em>ejecutan.</em><br>Los resultados escalan.</h2>
+    <p class="rv d2">8 agentes. Un marketplace. Implementación guiada desde el día uno.<br>Tu equipo enfocado en lo que realmente importa.</p>
+    <a href="#" class="btn-cta rv d3">
+      Agenda una demo
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+    <div class="cta-options rv d4">
+      <a href="https://shop.whitenose.cloud" class="cta-opt" target="_blank">
+        <div class="cta-opt-icon">🛒</div>
+        <div>
+          <div class="cta-opt-name">Ver el marketplace</div>
+          <div class="cta-opt-sub">shop.whitenose.cloud</div>
+        </div>
+      </a>
+      <a href="#agentes" class="cta-opt">
+        <div class="cta-opt-icon">▶</div>
+        <div>
+          <div class="cta-opt-name">Ver los 8 agentes</div>
+          <div class="cta-opt-sub">Elige el que resuelve tu problema</div>
+        </div>
+      </a>
+      <a href="#" class="cta-opt">
+        <div class="cta-opt-icon">💬</div>
+        <div>
+          <div class="cta-opt-name">Hablar directo</div>
+          <div class="cta-opt-sub">WhatsApp · LinkedIn</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">ag<em>én</em>tica</a>
+  <div class="footer-note">© 2025 Agéntica. Todos los derechos reservados.</div>
+  <a href="https://bluenose.pe" class="footer-link" target="_blank">bluenose.pe →</a>
+</footer>
+
+<script>
+function showSol(id, el) {
+  document.querySelectorAll('.sol-sector').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('#soluciones .stab').forEach(t => t.classList.remove('on'));
+  document.getElementById('sol-' + id).classList.add('on');
+  el.classList.add('on');
+}
+function showSector(id, el) {
+  document.querySelectorAll('.sector-body').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.stab').forEach(t => t.classList.remove('on'));
+  document.getElementById('sec-' + id).classList.add('on');
+  el.classList.add('on');
+}
+function showCaso(id, el) {
+  document.querySelectorAll('.caso-body').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.ctab').forEach(t => t.classList.remove('on'));
+  document.getElementById('caso-' + id).classList.add('on');
+  el.classList.add('on');
+}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.padding =
+    window.scrollY > 50 ? '12px 64px' : '18px 64px';
+});
+</script>
+</body>
+</html>
