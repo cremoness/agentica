@@ -283,7 +283,7 @@ footer{background:#060E1E;padding:36px 64px;display:flex;align-items:center;just
       <div><div class="hnum-val">8</div><div class="hnum-lbl">agentes especializados<br>listos para implementar</div></div>
       <div><div class="hnum-val">24/7</div><div class="hnum-lbl">tu equipo amplificado<br>sin horarios ni límites</div></div>
       <div><div class="hnum-val">21×</div><div class="hnum-lbl">más conversiones con<br>respuesta en 5 minutos</div></div>
-      <div><div class="hnum-val">5</div><div class="hnum-lbl">sectores con soluciones<br>construidas desde adentro</div></div>
+      <div><div class="hnum-val">6</div><div class="hnum-lbl">sectores con soluciones<br>construidas desde adentro</div></div>
     </div>
   </div>
 </section>
@@ -302,6 +302,7 @@ footer{background:#060E1E;padding:36px 64px;display:flex;align-items:center;just
     <button class="stab" onclick="showSector('ong',this)">ONGs</button>
     <button class="stab" onclick="showSector('ser',this)">Servicios Profesionales</button>
     <button class="stab" onclick="showSector('pym',this)">Pymes</button>
+    <button class="stab" onclick="showSector('con',this)">Construcción e Inmobiliarias</button>
   </div>
 
   <!-- EDUCACIÓN -->
@@ -483,9 +484,43 @@ footer{background:#060E1E;padding:36px 64px;display:flex;align-items:center;just
       </div>
     </div>
   </div>
-</section>
 
-<!-- FUNNEL -->
+  <!-- CONSTRUCCIÓN E INMOBILIARIAS -->
+  <div class="sector-body" id="sec-con">
+    <div class="sector-lede">
+      <div>
+        <h3>Construcción e Inmobiliarias: tienes proyectos, tienes leads. <em>Lo que no tienes es un proceso que los convierta antes de que la competencia los atienda primero.</em></h3>
+        <p>En el sector inmobiliario, el lead caliente tiene una vida muy corta. El comprador que consulta hoy está comparando tres proyectos al mismo tiempo. Si no recibe respuesta en menos de una hora, el siguiente mensaje que lee es del competidor. Y el equipo comercial, mientras tanto, está persiguiendo cotizaciones que llevan semanas sin respuesta.</p>
+      </div>
+      <div class="sector-lede-stat">
+        <div class="big">1h</div>
+        <div class="lbl">ventana de oportunidad antes de que el prospecto elija a otro</div>
+      </div>
+    </div>
+    <div class="pains-grid">
+      <div class="pain rv d1" style="border-left-color:#0EA5E9;">
+        <div class="pain-lbl">Velocidad — TC Lead→Visita</div>
+        <h4>El prospecto consulta desde el evento de lanzamiento. El asesor responde el lunes. Ya visitó otro proyecto.</h4>
+        <p>En proyectos residenciales y comerciales, el pico de consultas ocurre en eventos, ferias y fines de semana — exactamente cuando el equipo no está disponible. Sin respuesta en la primera hora, la probabilidad de agendar una visita cae más de 7 veces. El CAC por unidad vendida sube no porque los leads sean malos — sino porque nadie los atiende en el momento en que están más interesados.</p>
+      </div>
+      <div class="pain rv d2" style="border-left-color:#0EA5E9;">
+        <div class="pain-lbl">Calificación — ratio visitas agendadas vs. separaciones</div>
+        <h4>El asesor invierte el mismo tiempo en el comprador listo para separar y en el que solo está "viendo opciones".</h4>
+        <p>Sin precalificación automática, el asesor dedica horas al prospecto exploratorio sin intención real de compra. El ratio de visitas agendadas vs. separaciones reales es bajo — y el tiempo del asesor, el recurso más escaso del equipo comercial, se consume en el filtro que debería ser automático.</p>
+      </div>
+      <div class="pain rv d3" style="border-left-color:#0EA5E9;">
+        <div class="pain-lbl">Seguimiento — TC Visita→Separación</div>
+        <h4>El prospecto visitó el proyecto, le gustó, pidió tiempo para decidir. Y el seguimiento llegó cuando ya había separado en otro.</h4>
+        <p>El seguimiento post-visita es el momento más crítico del funnel inmobiliario — y el más descuidado. Sin automatización, el asesor recuerda hacer el seguimiento cuando tiene tiempo. La Tasa de Conversión de Visita a Separación cae no por falta de interés del comprador, sino por falta de contacto oportuno.</p>
+      </div>
+      <div class="pain rv d4" style="border-left-color:#0EA5E9;">
+        <div class="pain-lbl">Visibilidad — TC por proyecto, tipología y canal</div>
+        <h4>¿Cuántos leads llegaron a visita? ¿Cuántos a mesa de dinero? ¿Cuántos separaron? Los datos existen en silos — nadie ve el funnel completo.</h4>
+        <p>La TC por proyecto, por tipología de unidad y por canal de captación existe solo en teoría. Sin visibilidad integrada del pipeline, las decisiones de inversión en marketing se toman sin saber qué canal convierte mejor ni en qué etapa se pierde más valor. El CAC por unidad vendida lo paga.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="sec funnel-sec" id="funnel">
   <div class="funnel-intro rv">
     <span class="sec-tag">El funnel</span>
@@ -535,6 +570,7 @@ footer{background:#060E1E;padding:36px 64px;display:flex;align-items:center;just
     <button class="stab" onclick="showSol('ong',this)">ONGs</button>
     <button class="stab" onclick="showSol('ser',this)">Servicios Profesionales</button>
     <button class="stab" onclick="showSol('pym',this)">Pymes</button>
+    <button class="stab" onclick="showSol('con',this)">Construcción e Inmobiliarias</button>
   </div>
 
   <!-- ── EDUCACIÓN ── -->
@@ -866,9 +902,73 @@ footer{background:#060E1E;padding:36px 64px;display:flex;align-items:center;just
       </div>
     </div>
   </div>
-</section>
 
-<!-- DIFERENCIACIÓN -->
+  <!-- ── CONSTRUCCIÓN E INMOBILIARIAS ── -->
+  <div class="sol-sector" id="sol-con">
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El prospecto consulta desde el evento de lanzamiento. El asesor responde el lunes. Ya visitó otro proyecto.</h4>
+          <p>En proyectos residenciales y comerciales, el pico de consultas ocurre en eventos, ferias y fines de semana — exactamente cuando el equipo no está disponible. Sin respuesta en la primera hora, la probabilidad de agendar una visita cae más de 7 veces. El CAC por unidad vendida sube no porque los leads sean malos, sino porque nadie los atiende en el momento en que están más interesados.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Respuesta en minutos desde el evento — el agente califica y agenda la visita antes de que el prospecto llegue a casa.</h4>
+          <p>El agente responde inmediatamente por WhatsApp, califica el perfil del comprador (tipología de interés, presupuesto, necesidad de financiamiento) y agenda la visita a la sala de ventas. El asesor llega el lunes con visitas confirmadas — no con 40 mensajes fríos por contestar.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Proyectos con respuesta automatizada en lanzamiento agendaron más del 40% más visitas en las primeras 72 horas vs. proyectos con atención manual.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El asesor invierte el mismo tiempo en el comprador listo para separar y en el que solo está "viendo opciones". El TC Visita→Separación no acompaña.</h4>
+          <p>Sin precalificación automática, el asesor dedica horas al prospecto exploratorio sin intención real de compra. El ratio de visitas agendadas vs. separaciones reales es bajo — y el tiempo del asesor, el recurso más escaso del equipo comercial, se consume en el filtro que debería ser automático.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Precalificación automática por perfil: el asesor recibe al prospecto calificado, con tipología, presupuesto y plazo de decisión ya mapeados.</h4>
+          <p>El agente filtra según los criterios del proyecto — tipología de interés, rango de presupuesto, necesidad de crédito hipotecario, plazo de decisión — y entrega al asesor solo los prospectos con perfil real. La conversación comercial empieza desde un lugar completamente distinto.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Equipos con precalificación automática mejoraron más del 35% su TC de Visita a Separación al concentrar el tiempo del asesor en compradores con perfil real.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>El prospecto visitó el proyecto, le gustó, pidió tiempo para decidir. El seguimiento llegó tarde. Ya separó en otro.</h4>
+          <p>El seguimiento post-visita es el momento más crítico del funnel inmobiliario — y el más descuidado. El asesor recuerda hacerlo cuando tiene tiempo, entre los proyectos activos y las visitas del día. La Tasa de Conversión de Visita a Separación cae no por falta de interés, sino por falta de contacto oportuno.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Secuencia automática post-visita: brochure, ficha técnica, oferta de preventa y alerta al asesor cuando el prospecto interactúa.</h4>
+          <p>El agente lanza la secuencia inmediatamente después de la visita: agradecimiento personalizado, ficha de la unidad visitada, información de financiamiento y recordatorio de la oferta vigente. El asesor recibe una alerta cuando el prospecto interactúa con el material — y entra en el momento exacto correcto.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Proyectos con seguimiento automático post-visita mejoraron más del 30% su Tasa de Conversión de Visita a Separación en los primeros dos meses.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-before">
+          <div class="sol-section-label">Lo que pasa hoy</div>
+          <h4>La gerencia no sabe en tiempo real cuántos leads llegaron a visita, cuántos a mesa de dinero ni cuántos separaron. Las decisiones de inversión se toman al cierre del mes — no durante la campaña.</h4>
+          <p>Sin visibilidad integrada del pipeline, el presupuesto de marketing se distribuye sin saber qué canal convierte mejor ni en qué etapa del proceso se pierde más valor. El CAC por unidad vendida se conoce al final, cuando ya no hay nada que ajustar.</p>
+        </div>
+        <div class="sol-after">
+          <div class="sol-section-label">Con Agéntica</div>
+          <h4>Dashboard en tiempo real: TC por proyecto, por tipología de unidad y por canal — con visibilidad de cada etapa del pipeline.</h4>
+          <p>La gerencia comercial ve en qué proyectos se está perdiendo más valor y en qué etapa — mientras la campaña está activa. La distribución de inversión se optimiza con datos reales, no con la sensación del cierre del mes. El CAC por unidad vendida baja porque las decisiones llegan a tiempo.</p>
+          <div class="sol-dato">
+            <strong>Dato real: </strong><span>Gerencias con visibilidad en tiempo real del pipeline por proyecto redujeron su CAC por unidad vendida en más del 25% al optimizar la distribución de inversión durante la campaña.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="dif-sec" id="diferenciacion">
   <div class="dif-intro rv">
     <span class="sec-tag light">Por qué no es lo mismo que lo que ya conoces</span>
